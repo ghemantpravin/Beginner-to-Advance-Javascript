@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMI Calculator</title>
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+</head>
+<body>
+    
+    <div class="container">
+        <br>
+        <h1>Personal Loan EMI Calculator</h1>
+        <br>
+        <div class="row">
+            <div class="col-md-4">
+                <p style="display: flex;">
+                    Amount You Need &nbsp;<input type="text" onchange="AmounttextBoxChange()" id="amount" class="form-control" style="width: 25%;">
+                </p>
+                <p>50,000 <input type="range" onchange="AmountChange()" class="form-range" id="customAmount" value="5000" min="50000" max="5000000">50,00,000</p>
+            </div>
+            <div class="col-md-4">
+                <p style="display: flex;">
+                    For &nbsp;<input type="text" id="years" onchange="YearstextBoxChange()" class="form-control" style="width: 20%;">&nbsp; Years
+                </p>
+                <p>01<input type="range" onchange="YearsChange()" class="form-range" id="customYears" value="1" min="1" max="5">05</p>
+            </div>
+            <div class="col-md-4">
+                <p style="display: flex;">
+                    Interest Rate &nbsp;<input type="text" id="rate" onchange="InteresttextBoxChange()" class="form-control" style="width: 20%;">&nbsp; %
+                </p>
+                <p>10.25%<input type="range" onchange="InterestChange()" class="form-range" id="customRate" value="10.25" step="0.1" min="10.25" max="18.45">18.45%</p>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <button class="btn btn-primary" onclick="CalculateClick()" style="width: 20%; margin: auto;">Calculate</button>
+            <p id="result"></p>
+        </div>
+    </div>
+
+    <script src="../../src/emi/emi.js"></script>
+    <script src="../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="../../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>   
+</body>
+</html>

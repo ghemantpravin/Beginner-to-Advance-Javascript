@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flipkart</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <script>
+        function Bodyload(){
+            fetch('../data/flipkart.json') 
+            .then(function (response){
+                return response.json();
+            })
+            .then(function(flipkart_data){
+                document.getElementById('image').src = flipkart_data.photo;
+                document.getElementById('title').innerHTML = flipkart_data.title;
+                document.getElementById('rating').innerHTML = `${flipkart_data.ratings.rate}`
+                document.getElementById('reviews').innerHTML = 
+                `Total Reviews are : ${flipkart_data.ratings.reviews} 
+                and ratings are ${flipkart_data.ratings.ratings}` 
+                .fontcolor('gray').bold();
+                document.getElementById('prodcuctPrice').innerHTML = `&#8377; ${flipkart_data.price} 
+                <font size='3' color = 'gray'><strike> &#8377;${flipkart_data.actualprice}</strike></font>`;
+
+                for(let property of flipkart_data.offers){
+                    var li = document.createElement('li')
+                    li.innerHTML = `<span class='bi bi-tag-fill text-success'></span> ${property}`
+                    document.querySelector('ul').appendChild(li);
+                }
+            })
+        }
+    </script>
+</head>
+
+<body onload="Bodyload()">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <img width="300" height="500" id="image">
+            </div>
+            <div class="col-md-8">
+                <h3 id="title"></h3>
+                <div class="d-flex">
+                    <div class="bg-success text-white p-2 rounded rounded-pill" style="width: 60px;">
+                        <span id="rating"></span><span class="bi bi-star-fill"></span>
+                    </div>
+                    <div class="ms-3">
+                        <span id="reviews"></span>
+                    </div>
+                </div>
+                <div>
+                    <h1 id="prodcuctPrice"></h1>
+                </div>
+                <div>
+                    <h3>Offers</h3>
+                    <ul>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <script>
+        fetch('../data/amazon.json')
+        .then(function (response){
+            return response.json();
+        })
+        .then(function (amazon_product){
+            document.getElementById('image').src = amazon_product.photo;
+            document.getElementById('title').innerHTML = amazon_product.title;
+            document.getElementById('visit').innerHTML = amazon_product.link;
+            document.getElementById('price').innerHTML = `&#8377; ${amazon_product.price}`;
+            document.getElementById('tax').innerHTML = `${amazon_product.taxes}`;
+            document.getElementById('rating').innerHTML = `${amazon_product.ratings.ratings}`
+            document.getElementById('reviews').innerHTML = `Total reviews are ${amazon_product.ratings.reviews}
+            and ratings are ${amazon_product.ratings.rate}`.fontcolor('gray').bold()
+            for(let aboutsection of amazon_product.about){
+                var li = document.createElement('li')
+                li.innerHTML = `${aboutsection}`
+                document.querySelector('ul').appendChild(li);
+            }
+
+            for(let newOffers of amazon_product.offers){
+
+                var div = document.createElement('div')
+                div.className = 'col-md-4'
+                var card = document.createElement('card')
+                card.className = 'card'
+                var card_body = document.createElement('card-body')
+                card_body.className = 'card-body';
+                var card_title = document.createElement('card-title')
+                card_title.className = 'card-title';
+                var card_text = document.createElement('card-text')
+                card_text.className = 'card-text';
+                div.innerHTML = `<font size='3' color = 'gray'> ${newOffers.Offer_1}</font><br>   ${newOffers.Offer_2}`;
+                document.getElementById('row').appendChild(div);
+            }
+        })
+    </script>
+</head>
+<body>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <img width="300" height="400" id="image">
+                </div>
+                <div class="col-md-8">
+                    <h5 id="title"></h5>
+                    <a href="https://www.google.com/" id="visit"></a>
+                    <h4 id="price"></h4>
+                    <div class="d-flex">
+                        <div class="bg-success text-white p-2 rounded" style="width: 70px;">
+                            <span id="rating"></span><span class="bi bi-star-fill"></span>
+                        </div>
+                        <div class="ms-3">
+                            <span id="reviews"></span>
+                        </div>
+                    </div>
+                    <p id="tax"></p>
+                    <div>
+                        <h6>Offers</h6>
+                        <ul>
+
+                        </ul>    
+                    </div>
+                
+                        <div class="row" id="row">
+
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+

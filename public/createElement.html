@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function Adding()
+        {
+            let pic = document.createElement('img');
+            pic.width = 200;
+            pic.height = 100;
+            pic.border = 1;
+            pic.src = 'images/india.png'
+            document.getElementById('container').appendChild(pic)
+        }
+
+        let arr = ['All', 'Eletronics', 'Footwear', 'Kids']
+
+        function AddOption(){
+            document.querySelector('select').innerHTML = '';
+            for (let property of arr) 
+            {
+                let option = document.createElement('option');
+                option.text = property
+                option.value = property
+                document.querySelector('select').appendChild(option);
+            }
+
+            
+            for (let property of arr) {
+                let tr = document.createElement('tr');
+                let td = document.createElement('td');
+                td.innerHTML = property
+                tr.appendChild(td)
+                document.querySelector('tbody').appendChild(tr);
+            }
+
+            }
+        
+
+
+    </script>
+</head>
+<body>
+    
+    <button onclick="Adding()">Add Image</button> <br>
+    <button onclick="AddOption()">Add Option</button>
+    <div id="container"></div>
+    <select></select>
+
+    <table border="1" width="400">
+        <tbody>
+
+        </tbody>
+    </table>
+
+</body>
+</html>

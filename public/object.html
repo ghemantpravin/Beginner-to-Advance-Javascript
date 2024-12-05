@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let obj = {
+            name : 'Jack',
+            surname : 'Sparrow',
+            shipname : 'Black Pearl',
+            moviename : 'The Curse of Black Pearl',
+            'Print': function (){
+                document.write(`${this.name} ${this.surname} is worked in movie ${this.moviename}`)
+            }
+        }
+
+        obj.moviename = prompt('Enter movie name')
+        obj.Print();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

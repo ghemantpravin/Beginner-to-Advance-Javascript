@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function VerifyChar()
+        {
+            let username = document.getElementById('username').value;
+
+            let userError = document.getElementById('userError');
+
+            if(username.charCodeAt(0) >=65 &&  username.charCodeAt(0) <=90){
+                userError.innerHTML = '';
+            }
+            else{
+                userError.innerHTML = 'Please enter first char in caps' .fontcolor('red');
+            }
+        }
+    </script>
+</head>
+<body>
+         <!-- onfocus and onblur is also acceptable -->
+        <input type="text" placeholder="Username" id="username" onfocus="VerifyChar()">
+        <p id="userError"></p>
+        <input type="Submit">
+
+</body>
+</html>

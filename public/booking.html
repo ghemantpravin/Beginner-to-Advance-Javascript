@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="left">
+                    <h1>Inox Movie</h1>
+
+                    <h5>Select Pattern </h5>
+                    <select class="form-select" id="city">
+                        <option value="Movie">Movie</option>
+                        <option value="Cinema">Cinema</option>
+                    </select>
+                    <br>
+                    <h5>Select Movie </h5>
+                    <select class="form-select" id="movie">
+                        <option value="RRR">RRR</option>
+                        <option value="Drishyam">Drishyam</option>
+                        <option value="KGF - 1">KGF - 1</option>
+                        <option value="KGF - 2">KGF - 2</option>
+                        <option value="Salaar">Salaar</option>
+                    </select>
+                    <br>
+                    <h5>Select Theatre </h5>
+                    <select class="form-select" id="theatre">
+                        <option value="City Center">City Center</option>
+                        <option value="INOX">INOX</option>
+                        <option value="Big Bazzar">Big Bazzar</option>
+                    </select>
+                    <br>
+                    <h5>Select Date </h5>
+                    <input type="date" class="form-control" id="manufactured">
+                    <br>
+                    <h5>Select Time </h5>
+                    <input type="time" class="form-control" id="time">
+                    <br>
+                    <button id="btnRegister" id="btnModalRegister" onclick="RegisterClick()" class="btn btn-success">Register</button>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="right" id="rightInfo" style="display: none;">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">Your Ticket</h5>
+                            <h5>Pattern Name</h5>
+                            <p class="card-text" id="pname"></p>
+                            <h5>Movie Name</h5>
+                            <p class="card-text" id="mname"></p>
+                            <h5>Theatre Name</h5>
+                            <p class="card-text" id="tname"></p>
+                            <h5>Your Date</h5>
+                            <p class="card-text" id="ddate"></p>
+                            <h5>Your Timing</h5>
+                            <p class="card-text" id="ttiming"></p>
+                        </div>
+                        <button class="btn btn-warning" onclick="EditClick()">Edit</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    
+
+
+    <script src='../src/booking.js'></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

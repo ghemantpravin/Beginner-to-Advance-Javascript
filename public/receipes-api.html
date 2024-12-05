@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <script>
+        // var tdReviewCount = [];
+        function Bodyload()
+        {
+            fetch('https://dummyjson.com/recipes')
+            .then(function (response){
+                return response.json()
+            })
+            .then(function (dishesh){
+                for (let receipe of dishesh.recipes){
+                    let tr = document.createElement('tr')
+                    let tdId = document.createElement('td')
+                    let tdName = document.createElement('td')
+                    let tdImage = document.createElement('td')
+                    let tdRating = document.createElement('td')
+                    var tdReviewCount = document.createElement('td')
+
+                    tdId.innerHTML = `${receipe.id}`
+                    tdName.innerHTML = `${receipe.name}`
+                    tdImage.innerHTML = `<img src=${receipe.image} width = '200'>`
+                    tdRating.innerHTML = `${receipe.rating}`
+                    tdReviewCount.innerHTML = `${receipe.reviewCount}`
+
+
+                    tr.appendChild(tdId)
+                    tr.appendChild(tdName)
+                    tr.appendChild(tdImage)
+                    tr.appendChild(tdRating)
+                    tr.appendChild(tdReviewCount)
+
+                    let doc = document.querySelector('tbody').appendChild(tr);
+
+                    Calculate()
+            }
+        })
+    }
+
+    function Calculate(){
+
+        var tdReviewCount = [];
+
+        let sum = 0;
+        
+        for(let i = 0; i < tdReviewCount.length; i++){
+            sum += tdReviewCount[i]
+        }
+        document.getElementById("demo").innerHTML = `The sum is : ${sum}`;
+    }
+    </script>
+</head>
+<body onload="Bodyload()">
+        <div class="container">
+            <h1>Receipes API</h1>
+
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>name</th>
+                        <th>image</th>
+                        <th>rating</th>
+                        <th>reviewCount</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+            <p id="demo"></p>
+        </div>  
+</body>
+</html>

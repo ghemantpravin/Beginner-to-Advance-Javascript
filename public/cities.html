@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <script>
+        let cities = ['Delhi', 'Hyderbad', 'Mumbai']
+
+        function LoadCities(){
+            document.getElementById('lstCities').innerHTML = '';
+            for(let city of cities){
+                let option = document.createElement('option');
+                    option.text = city;
+                    option.value = city;
+                document.getElementById('lstCities').appendChild(option);
+                document.getElementById('countCities').innerHTML = `Total Number
+                of count is ${cities.length}`;
+            }
+        }
+
+        function bodyload()
+        {
+            LoadCities()
+        }
+
+        function PushValue(){
+            
+                let cityName = document.getElementById('txtCity').value;
+
+                if(cities.indexOf(cityName)==-1){
+                cities.push(cityName);
+                alert(`${cityName} added to list`);
+                document.getElementById('txtCity').value = '';
+                LoadCities();
+            }
+            else{
+                alert(`${cityName} is exists`); 
+            }
+        }
+
+        function RemoveCity(){
+            let selectedCityName = document.getElementById('lstCities').value;
+            let selectedIndex = cities.indexOf(selectedCityName);
+            let flag = confirm(`Delete ${selectedIndex} \n Are you sure want to delete`)
+            if(flag == true){
+                cities.splice(selectedIndex, 1)
+                LoadCities();
+            }
+        }
+
+        function ClearCity(){
+            cities.length = 0;
+            LoadCities();
+        }
+    </script>
+</head>
+<body onload="bodyload()">
+    <div class="container" >
+        <h1>Array Manipulations</h1>
+        <div class="mt-3 mb-3 w-25">
+            <div class="input-group">
+                <span class="input-group-text">New City : </span>
+                <input type="text" id="txtCity" class="form-control">
+                <button class="btn btn-primary" id="add" onclick="PushValue()">ADD</button>
+            </div>
+        </div>
+
+        <div class="w-25">
+            <label for="" class="form-label">Your Cities</label>
+            <div>
+                <select name="" id="lstCities" class="form-select">
+
+                </select>
+            </div>
+            <p id="countCities"></p>
+
+            <div class="mt-3">
+                <button class="btn btn-danger" id="remove" onclick="RemoveCity()">Remove City</button>
+                <button class="btn btn-danger" id="clear" onclick="ClearCity()">Remove City</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

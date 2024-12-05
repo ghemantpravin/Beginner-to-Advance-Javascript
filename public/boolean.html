@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <script>
+        function StockChanged(){
+            let stock = document.getElementById('stock');
+            let lblStock = document.getElementById('lblStock');
+
+            lblStock.innerHTML =  stock.checked? 'Available' : 'Out Of Stock';
+        }
+
+        function SortClick(){
+            let sort2 = document.getElementById('sort2');
+            sort2.className = (sort2.className == 'bi bi-sort-alpha-down') ? 'bi bi-sort-alpha-up' : 'bi bi-sort-alpha-down'; 
+        }
+
+        function FocusInput(){
+            let focusing = document.getElementById('focusing');
+            let submit = document.getElementById('submit')
+
+            if(focusing.value == '')
+            {
+                submit.disabled = true
+            }
+            else{
+                submit.disabled = false
+            }
+        }
+        
+
+    </script>
+</head>
+<body>
+    <div class="container">
+        <input type="checkbox" id="stock" onchange="StockChanged()">
+        <span id="lblStock">Out Of Stock</span> <br>
+
+        <button id='sort' onclick="SortClick()">
+            <span class="bi bi-sort-alpha-down" id="sort2"></span>
+        </button>
+
+        <h2>Your Name</h2>
+
+        <div class="form">
+            <input type="text" onblur="FocusInput()" id="focusing">
+            <input type="submit" id="submit" disabled>
+        </div>
+    </div>
+
+
+</body>
+</html>

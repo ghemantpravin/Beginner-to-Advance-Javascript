@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <style>
+        #frmLogin{
+            border-radius: 10px;
+            padding: 10px;
+        }
+        .dark-theme{
+            background-color: skyblue;
+        }
+        .dark-theme2{
+            background-color: none;
+        }
+    </style>
+    <script>
+        function ThemeChange(){
+            let flexSwitchCheckDefault = document.getElementById('flexSwitchCheckDefault');
+            let frmLogin = document.getElementById('frmLogin')
+            let loginButton = document.querySelector('button')
+
+            if(flexSwitchCheckDefault.checked){
+                frmLogin.className = 'dark-theme';
+                loginButton.className  = 'btn btn-primary w-100'
+            }
+            else{
+                frmLogin.className = 'dark-theme2'
+                loginButton.className  = 'btn btn-dark w-100'
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="d-flex jusify-content-center align-items-center" style="height: 400px;">
+                <div class="mid" style="margin: auto; display: table;">
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" onchange="ThemeChange()" role="switch" id="flexSwitchCheckDefault">
+                        <label class="form-check-label" for="flexSwitchCheckDefault">Default switch checkbox
+                            input</label>
+                    </div>
+                    <br>
+                    <div class="form" id="frmLogin">
+                        <label>Username</label>
+                        <input type="text" class="form-control"> <br>
+                        <label>Password</label>
+                        <input type="text" class="form-control"><br>
+                        <button class="btn btn-dark w-100" id="submit">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,18 @@
+[
+    {
+        "Name" : "Samsung TV",
+        "price" : 254500,
+        "rating" : {
+            "rate" : 5.0,
+            "reviews" : 545
+        }
+    },
+    {
+        "Name" : "MI TV",
+        "price" : 4500,
+        "rating" : {
+            "rate" : 4.5,
+            "reviews" : 123
+        }
+    }
+]

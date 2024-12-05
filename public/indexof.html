@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function VerifyChar()
+        {
+            let email = document.getElementById('email').value;
+
+            let userError = document.getElementById('userError');
+
+            if(email.indexOf('@') == -1 ){
+                userError.innerHTML = 'Please enter @ char in ' .fontcolor('red');
+            }
+            else{
+                userError.innerHTML = '';
+            }
+        }
+    </script>
+</head>
+<body>
+    <input type="text" placeholder="Email" id="email" onblur="VerifyChar()">
+        <p id="userError"></p>
+        <!-- <input type="Submit"> -->
+</body>
+</html>
