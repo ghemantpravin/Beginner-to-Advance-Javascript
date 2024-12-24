@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.css">
+
+    <title>Hello, world!</title>
+  </head>
+  <body onload="BodyLoad()">
+        <div class="fakestoreapi">
+            <div class="heading">
+                <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                    <a class="navbar-brand" href="#">Fakestore API</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                    </button>
+                
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                        <a class="nav-link" href="javascript:NavClick('Home')">All </a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="javascript:NavClick('electronics')">Electronics</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="javascript:NavClick('jewelery')">Jewelery</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="javascript:NavClick('men\'s clothing')">Men's clothing</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="javascript:NavClick('women\'s clothing')">Women's clothing</a>
+                        </li>
+                    </ul>
+                    <form class="form-inline">
+                        <span class="bi bi-search p-3" style="color:#fff;"></span>
+                        <span class="bi bi-person p-3" style="color:#fff;"></span>
+                        <span class="bi bi-heart p-3" style="color:#fff;"></span>
+                        <button onclick="LoadCartItems()" class="btn btn-light position-relative" data-bs-target="#cart" data-bs-toggle="modal">
+                            <span class="bi bi-cart"></span>
+                            <span class="badge bg-danger position-absolute" id="cartcount"></span>
+                        </button>
+                        <div class="modal fade" id="cart" aria-labelledby="cart" aria-hidden="true" tabindex="-1">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">Your Selected Items</h5>
+                                        <button class="btn-close" data-bs-dismiss="modal"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <table class="table table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>Title</th>
+                                                    <th>Preview</th>
+                                                    <th>Price</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+
+                                            </tbody>
+                                        </table>
+                                      </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    </div>
+                </nav>
+            </div>
+            <br><br>
+            <div class="container-fluid">
+                <section class="row">
+                    <nav class="col-3">
+                        <label for="">Select Category</label> <br><br>
+                        <select onchange="CategoryChange()" class="form-select" id="lstCategories" aria-label="Default select example">
+                            
+                        </select>
+                    </nav>
+                    <main class="col-9">
+                        <div class="row" id="add">
+
+                        </div>
+                    </main>
+                </section>
+            </div>
+    </div>
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+     <script src="../src/fakestore-api-sorting.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  </body>
+</html>

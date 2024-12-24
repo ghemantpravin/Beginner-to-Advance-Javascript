@@ -20,6 +20,8 @@
             document.getElementById('rating').innerHTML = `${amazon_product.ratings.ratings}`
             document.getElementById('reviews').innerHTML = `Total reviews are ${amazon_product.ratings.reviews}
             and ratings are ${amazon_product.ratings.rate}`.fontcolor('gray').bold()
+
+            
             for(let aboutsection of amazon_product.about){
                 var li = document.createElement('li')
                 li.innerHTML = `${aboutsection}`
