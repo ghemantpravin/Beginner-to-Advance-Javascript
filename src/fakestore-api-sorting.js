@@ -100,7 +100,7 @@ function NavClick(categoryName){
 
 
 let cartItems = [];
-
+let price = 0
 function GetCartCount()
 {   
     document.getElementById('cartcount').innerHTML = cartItems.length;
@@ -116,25 +116,31 @@ function AddToCartClick(id)
         alert(`${product.title} \n added to cart`)
         cartItems.push(product)
         GetCartCount()
+        price = price + product.price
+        document.getElementById('priceCell').innerHTML = `Total: &#8377 ${Math.round(price)}`
     })
 }
 
 //load all cart items into table which we purchase
 
 function LoadCartItems(){
+    document.querySelector('tbody').innerHTML = ''
     for (let item of cartItems){
         let tr = document.createElement('tr')
         let tdTitle = document.createElement('td')
         let tdImage = document.createElement('td')
         let tdPrice = document.createElement('td')
+        // let tdTotal = document.createElement('td')
 
         tdTitle.innerHTML = item.title
-        tdImage.innerHTML = `img src=${item.image} width='50' height='100'`
+        tdImage.innerHTML = `<img src=${item.image} width="50" height="50>`
         tdPrice.innerHTML = item.price
+        // tdTotal.innerHTML = `Final total is ${item.total}`
 
         tr.appendChild(tdTitle)
         tr.appendChild(tdImage)
         tr.appendChild(tdPrice)
+        // tr.appendChild(tdTotal)
 
         document.querySelector('tbody').appendChild(tr)
     }
