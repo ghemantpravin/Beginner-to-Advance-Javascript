@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider</title>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <script>
+        let id = 1;
+        function LoadProducts(){
+            fetch(`https://fakestoreapi.com/products/${id}`) 
+            .then(function (response){
+                return response.json()
+            })
+            .then(function (product){
+                // document.getElementById("image").src = product.image
+                document.getElementById("card-title").innerHTML = product.title
+                // document.getElementById("card-text").innerHTML = product.description
+            })
+        }
+
+        function NextClick(){
+            id++;
+            LoadProducts()
+        }
+
+        function PrevClick(){
+            id--;
+            LoadProducts()
+        }
+
+        function Bodyload(){
+            LoadProducts()
+        }
+
+        let timer;
+        function Play(){
+            id++;
+            timer = setInterval(LoadProducts, 1000)
+        }
+
+        function Pause(){
+            clearInterval(timer)
+        }
+    </script>
+</head>
+<body onload="Bodyload()">
+
+
+    <div class="container">
+        <div class="row">
+                <div class="col-md-12">
+                    <h1>Fake Store Image Slider</h1>
+                </div>
+                <div class="col-md-2">
+                    <button class="btn btn-primary" onclick="PrevClick()">Prev</button>
+                </div>
+                <div class="col-md-8">
+                    <div class="card">
+                        <!-- <img width="50%" height="50%" style="margin: auto;" id="image"> -->
+                        <h5 class="card-title" id="card-title"></h5>
+                        <!-- <p class="card-text" id="card-text"></p> -->
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <button class="btn btn-primary" onclick="NextClick()">Next</button>
+                </div>  
+
+            <div class="playpause" style="margin: auto; display: table; text-align: center;">
+                <button class="btn btn-warning" onclick="Play()">
+                    Play
+                </button>
+                <button class="btn btn-danger" onclick="Pause()">
+                    Pause
+                </button>
+            </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
